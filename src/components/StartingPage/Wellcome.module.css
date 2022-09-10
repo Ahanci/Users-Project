@@ -1,0 +1,15 @@
+.container{
+    margin: auto;
+    margin-top: 5rem;
+    width: 50%;
+    background-color: #ECB390;
+    border: 5px solid #DD4A48;
+    box-shadow: 1px 5px 5px #333533;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+}

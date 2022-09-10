@@ -1,0 +1,36 @@
+.form{
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+}
+.form label{
+    margin: 2px;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.form input{
+    margin: 2px;
+    width: 350px;
+    height: 30px;
+    border-radius: 5px;
+}
+.form div{
+    margin:5px;
+    display: flex;
+    flex-direction: column;
+}
+.form button{
+    padding: 10px;
+    background-color: #C0D8C0;
+    border-radius: 5px;
+    color:#DD4A48 ;
+    width: 80%;
+}
+.form button:hover{
+    background-color: #DD4A48;
+    color: #C0D8C0;
+}
