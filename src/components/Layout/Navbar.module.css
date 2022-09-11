@@ -23,6 +23,7 @@
     justify-content: center;
     align-items: center;
     margin-right: 1rem;
+    align-content: space-around;
 }
 .header li{
     margin-left: 2rem;
@@ -31,12 +32,15 @@
     color: #DD4A48;
     font-weight: bold;
 }
-
 .header button{
     font-size: 1.5rem;
-    padding: 5px;
+    padding: 10px;
     background-color: #DD4A48;
     color: #C0D8C0;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
+}
+.header button:hover{
+    background-color: #ECB390;
+    color: #DD4A48;
 }

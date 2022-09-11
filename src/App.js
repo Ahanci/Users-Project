@@ -1,18 +1,22 @@
 import './App.css';
-import Navbar from './components/Layout/Navbar';
-import UserForm from './components/Login/UserForm';
-import Wellcome from './components/StartingPage/Wellcome';
-import AllUsers from './components/Users/AllUsers';
+import {Routes, Route} from 'react-router-dom'
+import Layout from './components/Layout/Layout';
+import HomePage from './pages/HomePage';
+import Login from './pages/Login';
+import Users from './pages/Users';
+
 
 function App() {
+ 
   return (
-    <div className="App">
-      <Navbar/>
-      {/* <Wellcome/>
-      <UserForm/> */}
-      <AllUsers/>
-
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={ <HomePage/> } />
+        <Route path="/login" element={ <Login/> } />
+        <Route path="/users" element={ <Users/> } />
+      </Routes>
+    </Layout>
+   
   );
 }
 

@@ -1,60 +1,56 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
+import { useEffect } from 'react';
 import User from './User';
 import classes from './User.module.css'
 
 const AllUsers = () => {
-    const people = [ {
-        "id": 7,
-        "email": "michael.lawson@reqres.in",
-        "first_name": "Michael",
-        "last_name": "Lawson",
-        "avatar": "https://reqres.in/img/faces/7-image.jpg"
-    },
-    {
-        "id": 8,
-        "email": "lindsay.ferguson@reqres.in",
-        "first_name": "Lindsay",
-        "last_name": "Ferguson",
-        "avatar": "https://reqres.in/img/faces/8-image.jpg"
-    },
-    {
-        "id": 9,
-        "email": "tobias.funke@reqres.in",
-        "first_name": "Tobias",
-        "last_name": "Funke",
-        "avatar": "https://reqres.in/img/faces/9-image.jpg"
-    },
-    {
-        "id": 10,
-        "email": "byron.fields@reqres.in",
-        "first_name": "Byron",
-        "last_name": "Fields",
-        "avatar": "https://reqres.in/img/faces/10-image.jpg"
-    },
-    {
-        "id": 11,
-        "email": "george.edwards@reqres.in",
-        "first_name": "George",
-        "last_name": "Edwards",
-        "avatar": "https://reqres.in/img/faces/11-image.jpg"
-    },
-    {
-        "id": 12,
-        "email": "rachel.howell@reqres.in",
-        "first_name": "Rachel",
-        "last_name": "Howell",
-        "avatar": "https://reqres.in/img/faces/12-image.jpg"
-    }];
+    const [users, setUsers] = useState([]);
+    const [firstPage, setFirstPage] = useState(true);
+    const [usersApi, setUsersApi] = useState('https://reqres.in/api/users');
+
+    const changePageHandler = () => {
+        setFirstPage((prevState) => !prevState);
+        if (firstPage) {
+            setUsersApi('https://reqres.in/api/users')
+        } else {
+            setUsersApi('https://reqres.in/api/users?page=2')
+        }
+    }
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            const response = await fetch(usersApi);
+            const data = await response.json();
+            setUsers(data.data);
+        };
+        fetchUsers();
+    }, [usersApi]);
 
     return (
-        <section className={classes.userContainer} >
-            {people.map((person) => {
-        return(
-            <User person={person}/>
-            )
-        })}
+        <Fragment>
+            <div className={classes.contentContainer} >
+                <h1 >ALL USERS SHOWN BELOW</h1>
+            </div>
+            <section className={classes.userContainer} >
 
-        </section>
+                {users.map((user) => {
+                    return (
+                        <User user={user} />
+                    )
+                })}
+
+            </section>
+            <div className={classes.contentContainer}>
+                <h3>{firstPage ? 'Page 1' : 'Page 2'}</h3>
+                <button
+                    type='button'
+                    onClick={changePageHandler}
+                >{firstPage ? 'NEXT PAGE=>' : '<=PREV PAGE'}</button>
+            </div>
+
+
+        </Fragment>
+
 
     )
 };
