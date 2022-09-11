@@ -1,10 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
+import AuthContext from '../../store/auth-context';
 import classes from './UserForm.module.css';
 
 const UserForm = () => {
   const [newUser, setNewUser] = useState(true);
   const emailInput = useRef();
   const passwordInput = useRef();
+
+  const authCtx= useContext(AuthContext);
 
   const switchLoginHandler = () => {
     setNewUser((prevState) => !prevState);
@@ -33,9 +36,14 @@ const UserForm = () => {
           return res.json().then((data)=>{
             console.log(data.token)
           })
-        } else{ return res.json().then((data)=>{
-          console.log(data)
-        })
+        } 
+          else {
+            return res.json().then((data) => {
+              let errorMessage = 'REGISTERING FAILED';
+              throw new Error(errorMessage);
+        }).catch((err) => {
+          alert(err.message);
+        });
         }      
         
       })
@@ -56,7 +64,7 @@ const UserForm = () => {
       ).then((res) => {
         if(res.ok){
           return res.json().then((data)=>{
-            console.log(data.token)
+            authCtx.login(data.token)
           })
         } else{ return res.json().then((data)=>{
           console.log(data)
