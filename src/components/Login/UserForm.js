@@ -36,6 +36,7 @@ const UserForm = () => {
       ).then((res) => {
         if(res.ok){
           return res.json().then((data)=>{
+            authCtx.login(data.token);
             navigate('/');
           })
         } 
@@ -67,7 +68,7 @@ const UserForm = () => {
         if(res.ok){
           return res.json().then((data)=>{
             authCtx.login(data.token);
-            navigate('/');
+             navigate('/');
           })
         } else{ return res.json().then((data)=>{
           console.log(data)

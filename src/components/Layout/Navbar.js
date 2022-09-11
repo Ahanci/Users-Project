@@ -7,6 +7,11 @@ const Navbar = () => {
     const authCtx = useContext(AuthContext);
 
     const isLoggedIn = authCtx.isLoggedIn;
+
+    const logOutHandler = ()=>{
+        authCtx.logOut();
+    }
+
     return (
         <header className={classes.header} >
             <div className={classes.logo} >ReactTask</div>
@@ -29,7 +34,7 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <NavLink to='/login'>
-                                    <button>LogOut</button>
+                                    <button onClick={logOutHandler} >LogOut</button>
                                 </NavLink>
                             </li>
                         </>
