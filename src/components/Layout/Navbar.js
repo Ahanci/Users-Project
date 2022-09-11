@@ -8,8 +8,10 @@ const Navbar = () => {
 
     const isLoggedIn = authCtx.isLoggedIn;
 
+
     const logOutHandler = ()=>{
         authCtx.logOut();
+        
     }
 
     return (
@@ -33,7 +35,7 @@ const Navbar = () => {
                                 <NavLink to='/users' style={{ textDecoration: 'none' }} >All Users</NavLink>
                             </li>
                             <li>
-                                <NavLink to='/login'>
+                                <NavLink to='/'>
                                     <button onClick={logOutHandler} >LogOut</button>
                                 </NavLink>
                             </li>

@@ -6,7 +6,7 @@ import classes from './User.module.css'
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
     const [firstPage, setFirstPage] = useState(true);
-    const [usersApi, setUsersApi] = useState('https://reqres.in/api/users');
+    const [usersApi, setUsersApi] = useState('https://reqres.in/api/users?page=2');
 
     const changePageHandler = () => {
         setFirstPage((prevState) => !prevState);

@@ -1,3 +1,15 @@
+# FOR NEW LEARNERS OR WHO DON'T KNOW REACT JS: 
+You Can Download this app by two ways: (click the code(only green button on the screen) on the screen and you will see options)
+    1. Download the code as zip file(by clicking the "DownloadZip File");
+    2. Right Click (in any file in your computer) and open select "git bash here". Then write github repo's https url (when clicked the code button first url against you) to your git bash screen(a black screen) like that " git clone 'repo's url' "
+After downloading the app's file open the file with Visual Studio Code, then open terminal and write "npm i" after loading packages again to terminal write "npm start". 
+
+By doing so you will open the app.
+# CAUTION :
+
+This app arranged to auto logout(after 6 mins ) 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
