@@ -35,7 +35,7 @@ const AllUsers = () => {
 
                 {users.map((user) => {
                     return (
-                        <User user={user} />
+                        <User key={user.id} user={user} />
                     )
                 })}
 
